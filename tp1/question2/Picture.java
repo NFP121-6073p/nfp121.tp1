@@ -20,7 +20,8 @@ public class Picture {
     private Square window;
     private Triangle roof;
     private Circle sun;
-
+    private Circle sun2;
+    private boolean terreEstFixe=true;
     /**
      * Constructor for objects of class Picture
      */
@@ -32,6 +33,8 @@ public class Picture {
      * Draw this picture.
      */
     public void draw() {
+         if(terreEstFixe&&
+         sun==null){
         wall = new Square();
         wall.moveVertical(80);
         wall.changeSize(100);
@@ -50,13 +53,41 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
+        
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
+        
+        sun2= new Circle();
+        sun2.changeColor("yellow");
+          sun2.makeVisible ();
+          sun2.changeSize(30);
+       
+        sun2.moveHorizontal(240);
+           sun2.moveVertical(-10);
+        }
+        else{
+            sun.makeInvisible();
+            sun=null;
+            //Pour que si on reexecute draw on recommence de nouveau
+            //c-t-d sans le soliel bleu en bas  et avec un nouveau soleil bleu en haut
+            terreEstFixe=true;
+            draw();  
+        }
+   }
+    public void coucherSoleil(){
+        if(sun!=null) 
+        //pour ne pas avoir une erreure si on execute coucherSoleil coucherSoleil() avant draw()
+        {
+            if(terreEstFixe)
+            {
+                sun.slowMoveVertical(230);
+                  terreEstFixe=false;
+            }
+        }
     }
-
     /**
      * Change this picture to black/white display
      */
@@ -67,6 +98,7 @@ public class Picture {
             window.changeColor("white");
             roof.changeColor("black");
             sun.changeColor("black");
+            sun2.changeColor("black");
         }
     }
 
@@ -79,8 +111,10 @@ public class Picture {
             wall.changeColor("red");
             window.changeColor("black");
             roof.changeColor("green");
-            sun.changeColor("yellow");
-        }
+            sun.changeColor("blue");
+            sun2.changeColor("yellow");
+            
     }
-
+        
+    }
 }

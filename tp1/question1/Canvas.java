@@ -207,6 +207,12 @@ public class Canvas {
             setForegroundColor(colorString);
             graphic.fill(shape);
         }
-    }
 
+    }
 }
+    
+       
+
+
+
+          

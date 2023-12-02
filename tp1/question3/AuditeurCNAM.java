@@ -45,7 +45,53 @@ public class AuditeurCNAM {
      *         homonymes...
      */
     public String login() {
-        return "";// à compléter
+        
+        String n=this.nom;
+        String p=this.prenom
+        /**
+         * Pas de caractères accentuées pour le login
+         * /  
+           n=sansAccents(n);//
+           retourner le nom sans accents
+           p=sansAccents(p);//
+           retourner le prenom sans accents
+           /**
+            * Le trait d'union,ou spécieux<i>(pour unix)</i>sont remplacés par des'_'*/
+            n=n.replaceAll("[â-zA-Z0-9]+","_");//retourner le nom en remplacant le trait d'union,ou spéciaux <i>(pour unix)</i>par'_'
+            /**
+             * Le login est converis en minuscules
+             */
+            String nomAjuste=n.toLowerCase();
+            /**
+             * Le login est composé des 6 première lettres du nom suivies de la première lettre du prénom séparées de'_'*/
+             if(nomAjuste.length()>=6)
+            }
+            return
+            nomAjuste.substring(0,6)+"_"+prenomAjuste.substring(0,1);
+        }
+        else return nomAjuste+"_"+prenomAjuste.substring(0,1);
+    }
+    /**
+     * Méthode pour vérifiez si la Chaine est nulle ou vide.*/
+     
+     public boolean chaineVide(String s){
+         if(s!=null &&! s.trim().isEmpty())
+         {
+             return false;
+            }
+            else return true;
+        }
+        /**
+         * Méthode pour enlever les accents et le retourne sans accents */
+         public String sansAccents(String s){String avecAccent="àâéèîô";//tableau des lettres avec accents
+             String sansAccent="aaaaeeeiiiooouuu";//tableau ayant les mêmes lettres mais sans accents
+             int 1= avecAccent.charAt.length();
+             for(int i=0; i<I; i++)
+             s= s.replace(avecAccent.charAt(i));//enlever les accents
+            } return s;
+            
+     }
+        
     }
 
     /**
@@ -54,7 +100,7 @@ public class AuditeurCNAM {
      * @return son nom
      */
     public String nom() {
-        return null;// à compléter
+        return this.nom;// à compléter
     }
 
     /**
@@ -63,7 +109,7 @@ public class AuditeurCNAM {
      * @return son prénom
      */
     public String prenom() {
-        return null;// à compléter
+        return this.prenom;// à compléter
     }
 
     /**
@@ -72,7 +118,7 @@ public class AuditeurCNAM {
      * @return son matricule
      */
     public String matricule() {
-        return null;// à compléter
+        return this.matricule;// à compléter
     }
 
     /**

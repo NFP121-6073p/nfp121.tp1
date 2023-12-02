@@ -24,12 +24,13 @@ package question3;
  *          engagements, et suivi d'un appel à tearDown(), qui les détruit.
  */
 public class AuditeurCNAMTest extends junit.framework.TestCase {
-    // Définissez ici les variables d'instance nécessaires à vos engagements;
-    // Vous pouvez également les saisir automatiquement du présentoir
-    // à l'aide du menu contextuel "Présentoir --> Engagements".
-    // Notez cependant que ce dernier ne peut saisir les objets primitifs
-    // du présentoir (les objets sans constructeur, comme int, float, etc.).
-
+    public void test_pour_un_caractere(){
+        question3.AuditeurCNAM auditeur1= new question3.AuditeurCNAM("Lina Hallal","Lin@",audit1.nom()); assertEquals("Lina HAllal", auditeur1.nom());
+       "Hallal", auditeur1.prenom());
+    }
+   
+    
+    
     /**
      * Constructeur de la classe-test AuditeurCNAMTest.
      */
@@ -53,8 +54,8 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
      */
     protected void tearDown() // throws java.lang.Exception
     {
-        // Libérez ici les ressources engagées par setUp()
-    }
+        assertEals("nom avec caractere(@ devient)?","lin_h", auditeur1.login());
+        System.out.println("Running:test_pour_un_caractere");
 
     /*
      * Il ne vous reste plus qu'à définir une ou plusieurs méthodes de test. Ces
